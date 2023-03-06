@@ -1,3 +1,4 @@
+COUNTRY_TAXES = 0.17
 
 def get_user_inputs():
     global NUMBER_OF_WATS_IN_CHECK, NUMBER_OF_CHECKS, NUMBER_OF_WATS_IN_CHECK, WATS_OF_SMALL_APARTMENT_NOW \
@@ -35,6 +36,13 @@ def calculate_cost_of_wats_in_check(precentage_of_wats_in_check, wats_of_small_a
             wats_of_small_apartment_in_all_checks * PRICES_OF_WATS_IN_CHECK[check]
     return cost_of_wats_in_check
 
+def calculate_total_cost_of_wats_in_checks_before_taxes(cost_of_wats_in_check):
+    total_cost_of_wats_in_checks_before_taxes = 0.0
+    for cost_of_wats_in_specific_check in cost_of_wats_in_check:
+        total_cost_of_wats_in_checks_before_taxes = total_cost_of_wats_in_checks_before_taxes + \
+            cost_of_wats_in_specific_check
+    return total_cost_of_wats_in_checks_before_taxes
+    
 def main():
     get_user_inputs()
 
@@ -43,6 +51,7 @@ def main():
     
     #From here, didnt check anythingg
     cost_of_wats_in_check = calculate_cost_of_wats_in_check(precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks)
+    total_cost_of_wats_in_checks_before_taxes = calculate_total_cost_of_wats_in_checks_before_taxes(cost_of_wats_in_check)
     
     
 if __name__ == "__main__":
