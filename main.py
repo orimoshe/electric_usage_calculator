@@ -40,7 +40,10 @@ def main():
 
     precentage_of_wats_in_check = calculate_precentage_of_wats_in_check()
     wats_of_small_apartment_in_all_checks = calculate_wats_of_small_apartment_in_all_checks()    
+    
+    #From here, didnt check anythingg
     cost_of_wats_in_check = calculate_cost_of_wats_in_check(precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks)
+    
     
 if __name__ == "__main__":
     main()
