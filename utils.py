@@ -26,13 +26,11 @@ def calculate_cost_of_wats_in_check(precentage_of_wats_in_check, wats_of_small_a
 def calculate_total_cost_of_wats_in_checks_before_taxes(cost_of_wats_in_check):
     total_cost_of_wats_in_checks_before_taxes = 0.0
     for cost_of_wats_in_specific_check in cost_of_wats_in_check:
-        total_cost_of_wats_in_checks_before_taxes = total_cost_of_wats_in_checks_before_taxes + \
-            cost_of_wats_in_specific_check
+        total_cost_of_wats_in_checks_before_taxes += cost_of_wats_in_specific_check
     return total_cost_of_wats_in_checks_before_taxes
     
 def calculate_total_cost_of_wats_in_checks_after_taxes(total_cost_of_wats_in_checks_before_taxes):
     total_cost_of_wats_in_checks_after_taxes = total_cost_of_wats_in_checks_before_taxes
-    total_cost_of_wats_in_checks_after_taxes = total_cost_of_wats_in_checks_after_taxes + g.SERVICE_TAXES
-    total_cost_of_wats_in_checks_after_taxes = total_cost_of_wats_in_checks_after_taxes + \
-        (total_cost_of_wats_in_checks_after_taxes * g.COUNTRY_TAXES)
+    total_cost_of_wats_in_checks_after_taxes += g.SERVICE_TAXES
+    total_cost_of_wats_in_checks_after_taxes += total_cost_of_wats_in_checks_after_taxes * g.COUNTRY_TAXES
     return total_cost_of_wats_in_checks_after_taxes
