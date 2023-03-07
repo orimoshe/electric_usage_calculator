@@ -2,7 +2,8 @@ COUNTRY_TAXES = 0.17
 
 def get_user_inputs():
     global NUMBER_OF_WATS_IN_CHECK, NUMBER_OF_CHECKS, NUMBER_OF_WATS_IN_CHECK, WATS_OF_SMALL_APARTMENT_NOW \
-        , WATS_OF_BOTH_APARTMENTS, LAST_WATS_OF_SMALL_APARTMENT, PRICES_OF_WATS_IN_CHECK
+        , WATS_OF_BOTH_APARTMENTS, LAST_WATS_OF_SMALL_APARTMENT, PRICES_OF_WATS_IN_CHECK, SERVICE_TAXES
+    SERVICE_TAXES = float(input("enter service taxes: "))
     NUMBER_OF_CHECKS = int(input("enter number of checks: "))
 
     NUMBER_OF_WATS_IN_CHECK = [0 for check in range(NUMBER_OF_CHECKS)] 
@@ -10,12 +11,12 @@ def get_user_inputs():
     
     for check in range(NUMBER_OF_CHECKS):
         print("check " + str(check) + ":")
-        NUMBER_OF_WATS_IN_CHECK[check] = int(input("enter number of wats in check: "))
-        PRICES_OF_WATS_IN_CHECK[check] = int(input("enter the price of wats in check: "))
+        NUMBER_OF_WATS_IN_CHECK[check] = float(input("enter number of wats in check: "))
+        PRICES_OF_WATS_IN_CHECK[check] = float(input("enter the price of wats in check: "))
         
-    LAST_WATS_OF_SMALL_APARTMENT = int(input("enter last wats of small apartment: "))
-    WATS_OF_SMALL_APARTMENT_NOW = int(input("enter wats of small apartment now: "))
-    WATS_OF_BOTH_APARTMENTS = int(input("enter wats of both apartment: "))
+    LAST_WATS_OF_SMALL_APARTMENT = float(input("enter last wats of small apartment: "))
+    WATS_OF_SMALL_APARTMENT_NOW = float(input("enter wats of small apartment now: "))
+    WATS_OF_BOTH_APARTMENTS = float(input("enter wats of both apartment: "))
     
 def calculate_precentage_of_wats_in_check():
     precentage_of_wats_in_check = [0 for check in range(NUMBER_OF_CHECKS)]
@@ -34,6 +35,7 @@ def calculate_cost_of_wats_in_check(precentage_of_wats_in_check, wats_of_small_a
     for check in range(NUMBER_OF_CHECKS):
         cost_of_wats_in_check[check] = precentage_of_wats_in_check[check] * \
             wats_of_small_apartment_in_all_checks * PRICES_OF_WATS_IN_CHECK[check]
+        cost_of_wats_in_check[check] = round(cost_of_wats_in_check[check])
     return cost_of_wats_in_check
 
 def calculate_total_cost_of_wats_in_checks_before_taxes(cost_of_wats_in_check):
@@ -43,16 +45,21 @@ def calculate_total_cost_of_wats_in_checks_before_taxes(cost_of_wats_in_check):
             cost_of_wats_in_specific_check
     return total_cost_of_wats_in_checks_before_taxes
     
+def calculate_total_cost_of_wats_in_checks_after_taxes(total_cost_of_wats_in_checks_before_taxes):
+    total_cost_of_wats_in_checks_after_taxes = total_cost_of_wats_in_checks_before_taxes
+    total_cost_of_wats_in_checks_after_taxes = total_cost_of_wats_in_checks_after_taxes + SERVICE_TAXES
+    total_cost_of_wats_in_checks_after_taxes = total_cost_of_wats_in_checks_after_taxes + \
+        (total_cost_of_wats_in_checks_after_taxes * COUNTRY_TAXES)
+    return total_cost_of_wats_in_checks_after_taxes
+
 def main():
     get_user_inputs()
-
-    precentage_of_wats_in_check = calculate_precentage_of_wats_in_check()
-    wats_of_small_apartment_in_all_checks = calculate_wats_of_small_apartment_in_all_checks()    
-    
-    #From here, didnt check anythingg
+    precentage_of_wats_in_check = calculate_precentage_of_wats_in_check()    
+    wats_of_small_apartment_in_all_checks = calculate_wats_of_small_apartment_in_all_checks()   
     cost_of_wats_in_check = calculate_cost_of_wats_in_check(precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks)
     total_cost_of_wats_in_checks_before_taxes = calculate_total_cost_of_wats_in_checks_before_taxes(cost_of_wats_in_check)
-    
-    
+
+    total_cost_of_wats_in_checks_after_taxes = calculate_total_cost_of_wats_in_checks_after_taxes(total_cost_of_wats_in_checks_before_taxes)
+    print("total pay of small apartment " + str(total_cost_of_wats_in_checks_after_taxes))
 if __name__ == "__main__":
     main()
