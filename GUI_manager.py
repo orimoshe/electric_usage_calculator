@@ -2,9 +2,9 @@
 
 # from PyQt5.QtWidgets import QApplication, QWidget
 
-from PyQt5.QtWidgets import QApplication,QLineEdit,QWidget,QFormLayout
+from PyQt5.QtWidgets import QApplication,QLineEdit,QWidget,QFormLayout, QPushButton, QVBoxLayout
 from PyQt5.QtGui import QIntValidator,QDoubleValidator,QFont
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, pyqtSignal
 import sys
 class lineEdit(QWidget):
     def __init__(self,parent=None):
@@ -34,6 +34,12 @@ class lineEdit(QWidget):
         e7 = QLineEdit()
         e7.setValidator(QDoubleValidator())
 
+        sumbitButton = QPushButton("Submit")
+        # sumbitButton.setCheckable(True)
+        # sumbitButton.toggle()
+        # sumbitButton.clicked.connect(lambda:self.whichbtn(sumbitButton))
+        # sumbitButton.clicked.connect(self.btnstate)
+        
         flo = QFormLayout()
         flo.addRow("NUMBER_OF_CHECKS",e1)
         #TODO: NUMBER_OF_WATS_IN_CHECK need to be arr size of NUMBER_OF_CHECKS
@@ -43,25 +49,31 @@ class lineEdit(QWidget):
         flo.addRow("LAST_WATS_OF_SMALL_APARTMENT",e5)
         flo.addRow("WATS_OF_SMALL_APARTMENT_NOW",e6)
         flo.addRow("WATS_OF_BOTH_APARTMENTS",e7)
+        flo.addRow(sumbitButton)#,QPushButton("Cancel"))
+        
+        sumbitButton.clicked.connect(self.button_click)
+
   
         self.setLayout(flo)
-        self.setWindowTitle("QLineEdit Example")
 
-    def textchanged(self,text):
-            print("Changed: " + text)
+    def button_click(self):
+        print("asd")
+        # if self.sumbitButton.isChecked():
+        #     shost = self.e1.text()
+        #     print (shost)
+            # inizialize_variables_from_user(self)
 
-    def enterPress(self):
-            print("Enter pressed")
-
+def inizialize_variables_from_user(self):
+    print(self.e1.text())
 class GUI_manager():
     def __init__(self):
         self.app = QApplication(sys.argv)
         self.root = QWidget()
         
-        self.root.resize(440,215)
+        self.root.resize(440,240)
         self.root.setWindowTitle("electric usage calculator")
         
         lineEdit(self.root)
-        self.root.e3.text()
+        
         self.root.show()
         sys.exit(self.app.exec_())
