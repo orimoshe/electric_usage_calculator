@@ -1,4 +1,5 @@
 COUNTRY_TAXES = 0.17    
+NUMBER_OF_CHECKS_LAYOUT = 0
 
 def intialize_global_variables():
     global NUMBER_OF_WATS_IN_CHECK, NUMBER_OF_CHECKS, WATS_OF_SMALL_APARTMENT_NOW \

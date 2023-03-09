@@ -1,4 +1,4 @@
-import GUI_manager
+import GUI.GUI_manager as GUI_manager
 import utils 
 
 
