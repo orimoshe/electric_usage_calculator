@@ -38,6 +38,7 @@ class input_GUI(QWidget):
         
         #TODO: NUMBER_OF_WATS_IN_CHECK need to be arr size of NUMBER_OF_CHECKS
         
+        sumbitButton.clicked.connect(self.button_click)
         
         flo.addRow("PRICES_OF_WATS_IN_CHECK",self.e3)
         flo.addRow("SERVICE_TAXES",self.e4)
@@ -46,7 +47,6 @@ class input_GUI(QWidget):
         flo.addRow("WATS_OF_BOTH_APARTMENTS",self.e7)
         flo.addRow(sumbitButton)
         
-        sumbitButton.clicked.connect(self.button_click)
 
         self.setLayout(flo)
   

@@ -5,7 +5,8 @@ import utils
 def main():
     mainGUI = GUI_manager.GUI_manager()
     
-    utils.get_user_inputs()
+    # utils.get_user_inputs()
+    
     precentage_of_wats_in_check = utils.calculate_precentage_of_wats_in_check()    
     wats_of_small_apartment_in_all_checks = utils.calculate_wats_of_small_apartment_in_all_checks()   
     cost_of_wats_in_check = utils.calculate_cost_of_wats_in_check(precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks)
