@@ -35,13 +35,16 @@ class window2_manager():
         self.window2.setLayout(self.layout)
 
     def add_rows_to_layout(self):
+        self.add_number_of_wats_row()
+
+        self.layout.addRow("Button2", self.sumbitButton2)
+        
+    def add_number_of_wats_row(self):
         for check in range(self.number_of_checks):
             self.number_of_wats_in_check.append(QLineEdit())
             self.number_of_wats_in_check[check].setValidator(QDoubleValidator())
                 
-            self.layout.addRow("number_of_wats_in_check " + str(check), self.number_of_wats_in_check[check])
-
-        self.layout.addRow("Button2", self.sumbitButton2)
+            self.layout.addRow("number_of_wats_in_check " + str(check), self.number_of_wats_in_check[check])        
         
     def button_click2(self, a, b):
         for i in range(0, len(self.number_of_wats_in_check)):
