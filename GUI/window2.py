@@ -6,7 +6,6 @@ class window2_manager():
     def __init__(self, number_of_checks, parent=None):
         super().__init__()
         
-        print(number_of_checks.text())
         print("init2")
         
         self.number_of_checks = int(number_of_checks.text())
@@ -21,7 +20,6 @@ class window2_manager():
                 
     def create_widget(self):
         self.window2 = QWidget()
-        self.window2.resize(440,240)
         self.window2.setWindowTitle("electric usage calculator")
         
     def create_and_connect_sumbit_button(self):

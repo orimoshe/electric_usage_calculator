@@ -9,7 +9,7 @@ class GUI_manager():
         
         #create window 1
         self.window1 = QWidget()
-        self.window1.resize(440,240)
+        self.window1.resize(260,100)
         self.window1.setWindowTitle("electric usage calculator")
         window1_manager(self.window1)
         
