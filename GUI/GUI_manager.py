@@ -7,11 +7,7 @@ class GUI_manager():
         #create app
         self.app = QApplication(sys.argv)
         
-        #create window 1
-        self.window1 = QWidget()
-        self.window1.resize(260,100)
-        self.window1.setWindowTitle("electric usage calculator")
-        window1_manager(self.window1)
+        self.window1 = window1_manager()
         
         self.window1.show()
         sys.exit(self.app.exec_())

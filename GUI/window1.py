@@ -6,9 +6,15 @@ from functools import partial
 class window1_manager(QWidget):
     def __init__(self,parent=None):
         super().__init__(parent)
-        
+        self.create_widget()
         self.get_number_of_checks_from_user()
-        
+      
+    def create_widget(self):
+        #create window 1
+        self.window1 = QWidget()
+        self.window1.resize(260,100)
+        self.window1.setWindowTitle("electric usage calculator")  
+    
     def get_number_of_checks_from_user(self):
         self.create_number_of_checks()
         self.create_and_connect_sumbit_button()
