@@ -12,7 +12,8 @@ def calculate_precentage_of_wats_in_check():
     return precentage_of_wats_in_check
 
 def calculate_wats_of_small_apartment_in_all_checks():
-    return (g.WATS_OF_SMALL_APARTMENT_NOW-g.LAST_WATS_OF_SMALL_APARTMENT)
+    g.WATS_USAGE_OF_SMALL_APARTMENT = g.WATS_OF_SMALL_APARTMENT_NOW-g.LAST_WATS_OF_SMALL_APARTMENT 
+    return (g.WATS_USAGE_OF_SMALL_APARTMENT)
     
 def calculate_cost_of_wats_in_check(precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks):
     cost_of_wats_in_check = [0 for check in range(g.NUMBER_OF_CHECKS)]
