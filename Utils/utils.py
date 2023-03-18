@@ -1,4 +1,4 @@
-import global_variables as g
+import Utils.global_variables as g
 
 def get_user_inputs(self):
     g.intialize_global_variables(self)
