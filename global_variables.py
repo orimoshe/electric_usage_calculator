@@ -1,22 +1,24 @@
 COUNTRY_TAXES = 0.17    
 NUMBER_OF_CHECKS_LAYOUT = 0
 
-def intialize_global_variables():
+def intialize_global_variables(self):
     global NUMBER_OF_WATS_IN_CHECK, NUMBER_OF_CHECKS, WATS_OF_SMALL_APARTMENT_NOW \
         , WATS_OF_BOTH_APARTMENTS, LAST_WATS_OF_SMALL_APARTMENT, PRICES_OF_WATS_IN_CHECK, SERVICE_TAXES
     
-    NUMBER_OF_CHECKS = int(input("enter number of checks: "))
-    
+    NUMBER_OF_CHECKS = self.number_of_checks
+
     NUMBER_OF_WATS_IN_CHECK = [0 for check in range(NUMBER_OF_CHECKS)] 
     PRICES_OF_WATS_IN_CHECK = [0 for check in range(NUMBER_OF_CHECKS)]
-    
-    SERVICE_TAXES = float(input("enter service taxes: "))
+
+    SERVICE_TAXES = float(self.info["service_tax"].text())
     
     for check in range(NUMBER_OF_CHECKS):
-        print("check " + str(check) + ":")
-        NUMBER_OF_WATS_IN_CHECK[check] = float(input("enter number of wats in check: "))
-        PRICES_OF_WATS_IN_CHECK[check] = float(input("enter the price of wats in check: "))
+        number_of_wats_in_check_name = "number_of_wats_in_check" + "_" + str(check)
+        prices_of_wats_in_check_name = "prices_of_wats_in_check" + "_" + str(check)
         
-    LAST_WATS_OF_SMALL_APARTMENT = float(input("enter last wats of small apartment: "))
-    WATS_OF_SMALL_APARTMENT_NOW = float(input("enter wats of small apartment now: "))
-    WATS_OF_BOTH_APARTMENTS = float(input("enter wats of both apartment: "))
+        NUMBER_OF_WATS_IN_CHECK[check] = float(self.info[number_of_wats_in_check_name].text())
+        PRICES_OF_WATS_IN_CHECK[check] = float(self.info[prices_of_wats_in_check_name].text())
+        
+    LAST_WATS_OF_SMALL_APARTMENT = float(self.info["last_wats_of_small_apartment"].text())
+    WATS_OF_SMALL_APARTMENT_NOW = float(self.info["wats_of_small_apartment_now"].text())
+    WATS_OF_BOTH_APARTMENTS = float(self.info["wats_of_both_apartments"].text())

@@ -10,7 +10,6 @@ class window1_manager(QWidget):
         self.get_number_of_checks_from_user()
       
     def create_widget(self):
-        #create window 1
         self.window1 = QWidget()
         self.window1.resize(260,100)
         self.window1.setWindowTitle("electric usage calculator")  
@@ -35,7 +34,5 @@ class window1_manager(QWidget):
         self.setLayout(self.layout)
 
     def button_click1(self, a,b):
-        print(self.number_of_checks.text())
-        
         window2_instance = window2_manager(self.number_of_checks)
         window2_instance.window2.show()

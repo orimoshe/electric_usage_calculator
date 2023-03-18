@@ -1,7 +1,7 @@
 import global_variables as g
 
-def get_user_inputs():
-    g.intialize_global_variables()
+def get_user_inputs(self):
+    g.intialize_global_variables(self)
         
 def calculate_precentage_of_wats_in_check():
     precentage_of_wats_in_check = [0 for check in range(g.NUMBER_OF_CHECKS)]
