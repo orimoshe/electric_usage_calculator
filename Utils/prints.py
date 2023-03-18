@@ -28,6 +28,3 @@ def base_data(self):
     word = word[::-1]
     word2 = word2[::-1]
     print(word2 + str(g.NUMBER_OF_CHECKS) + word)
-
-    for check in range(g.NUMBER_OF_CHECKS):
-        print(str(check) + ". " + )
