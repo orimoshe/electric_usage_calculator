@@ -29,7 +29,7 @@ class window2_manager():
         self.window2.setLayout(self.layout)
 
     def add_rows_to_layout(self):
-        info_parameters = ["start_date", "end_date", "number_of_wats_in_check", "prices_of_wats_in_check", "wats_of_small_apartment_now", "wats_of_both_apartments", \
+        info_parameters = ["start_date", "end_date","change_price_date", "number_of_wats_in_check", "prices_of_wats_in_check", "wats_of_small_apartment_now", "wats_of_both_apartments", \
                             "last_wats_of_small_apartment", "service_tax"]
         self.info = {}
             

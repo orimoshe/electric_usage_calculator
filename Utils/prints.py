@@ -28,3 +28,13 @@ def base_data(self):
     word = word[::-1]
     word2 = word2[::-1]
     print(word2 + str(g.NUMBER_OF_CHECKS) + word)
+
+    word = u" עד "
+    word2 = u" אגורות "
+    word3 = u" שהם "
+    word = word[::-1]
+    word2 = word2[::-1]
+    word3 = word3[::-1]
+    for check in range(g.NUMBER_OF_CHECKS):
+        print(str(check+1) + "." + word + str(g.CHANGE_PRICE_DATE[check]) + " " + str(round(g.PRICES_OF_WATS_IN_CHECK[check]* 100, 2)) \
+            + word2 + str(g.NUMBER_OF_WATS_IN_CHECK[check]) + word3 + str(round(g.PRECENTAGE_OF_WATS_IN_CHECK[check] * 100)) + "%")

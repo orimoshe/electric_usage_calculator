@@ -8,7 +8,7 @@ def calculate_precentage_of_wats_in_check():
     
     for check in range(g.NUMBER_OF_CHECKS):
         precentage_of_wats_in_check[check] = g.NUMBER_OF_WATS_IN_CHECK[check]/g.WATS_OF_BOTH_APARTMENTS
-
+        g.PRECENTAGE_OF_WATS_IN_CHECK[check] = precentage_of_wats_in_check[check] 
     return precentage_of_wats_in_check
 
 def calculate_wats_of_small_apartment_in_all_checks():
