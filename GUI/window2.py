@@ -22,23 +22,27 @@ class window2_manager():
         self.sumbitButton2.clicked.connect(partial(self.button_click2, self))
 
     def create_layout(self):
-        # self.number_of_wats_in_check = []
         self.layout = QFormLayout()
-        
         self.add_rows_to_layout()
-        
         self.window2.setLayout(self.layout)
 
     def add_rows_to_layout(self):
-        info_parameters = ["number_of_wats_in_check", "wats_of_small_apartment_now"]
+        info_parameters = ["number_of_wats_in_check", "wats_of_small_apartment_now", "wats_of_both_apartments", \
+                            "last_wats_of_small_apartment", "prices_of_wats_in_check", "service_tax"]
         self.info = {}
             
         for parameter in info_parameters:
-            for check in range(self.number_of_checks):
-                item_name = parameter + "_" + str(check)
+            if(parameter == "service_tax"):
+                item_name = parameter
                 
                 self.info[item_name] = QLineEdit()            
                 self.info[item_name].setValidator(QDoubleValidator())
+            else:
+                for check in range(self.number_of_checks):
+                    item_name = parameter + "_" + str(check)
+                    
+                    self.info[item_name] = QLineEdit()            
+                    self.info[item_name].setValidator(QDoubleValidator())
 
 
         for item_name, item_value in self.info.items():
@@ -50,6 +54,10 @@ class window2_manager():
             self.layout.addRow(item_name, item_value) 
         
     def button_click2(self, a, b):
+        self.debug_print()
+
+    def debug_print(self):
         input_values = self.info.values()
         for value in input_values:
             print(value.text())
+        
