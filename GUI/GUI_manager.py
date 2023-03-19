@@ -10,6 +10,3 @@ class GUI_manager():
         
         self.window1.show()
         sys.exit(self.app.exec_())
-        
-def close_window(self):
-    self.close()

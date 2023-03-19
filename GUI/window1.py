@@ -1,8 +1,5 @@
-from PyQt5.QtWidgets import QLineEdit,QWidget,QFormLayout, QPushButton
-from PyQt5.QtGui import QDoubleValidator
 from GUI.window2 import window2_manager
-from functools import partial
-
+from Utils.imports import *
 class window1_manager(QWidget):
     def __init__(self,parent=None):
         super().__init__(parent)

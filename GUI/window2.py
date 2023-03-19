@@ -1,6 +1,4 @@
-from PyQt5.QtWidgets import QLineEdit,QWidget,QFormLayout, QPushButton
-from PyQt5.QtGui import QDoubleValidator
-from functools import partial
+from Utils.imports import *
 import Utils.utils as utils 
 import Utils.prints as prints
 
@@ -34,19 +32,17 @@ class window2_manager():
         self.info = {}
             
         for parameter in info_parameters:
-            if(parameter == "start_date" or parameter == "end_date" or \
-                parameter == "wats_of_small_apartment_now" or parameter == "wats_of_both_apartments" or \
-                parameter == "last_wats_of_small_apartment" or parameter == "service_tax"):
-                item_name = parameter
-                self.info[item_name] = QLineEdit()            
-                self.info[item_name].setValidator(QDoubleValidator())
-            else:
+            if(parameter == "change_price_date" or parameter == "number_of_wats_in_check" or \
+                parameter == "prices_of_wats_in_check"):
                 for check in range(self.number_of_checks):
                     item_name = parameter + "_" + str(check)
                     
                     self.info[item_name] = QLineEdit()            
                     self.info[item_name].setValidator(QDoubleValidator())
-
+            else:
+                item_name = parameter
+                self.info[item_name] = QLineEdit()            
+                self.info[item_name].setValidator(QDoubleValidator())
 
         for item_name, item_value in self.info.items():
             self.add_number_of_wats_row(item_name, item_value)
