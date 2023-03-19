@@ -38,3 +38,15 @@ def base_data(self):
     for check in range(g.NUMBER_OF_CHECKS):
         print(str(check+1) + "." + word + str(g.CHANGE_PRICE_DATE[check]) + " " + str(round(g.PRICES_OF_WATS_IN_CHECK[check]* 100, 2)) \
             + word2 + str(g.NUMBER_OF_WATS_IN_CHECK[check]) + word3 + str(round(g.PRECENTAGE_OF_WATS_IN_CHECK[check] * 100)) + "%")
+    
+    print_on_GUI(self)
+
+def print_on_GUI(self):
+    word = u" עד "
+    
+    self.textLabel.setText(word)
+    self.textLabel.move(110,85)
+    # self.widget.setGeometry(50,50,320,200)
+    self.widget.setWindowTitle("Output")
+    self.widget.show()
+        

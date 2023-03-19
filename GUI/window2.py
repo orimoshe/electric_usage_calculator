@@ -14,9 +14,14 @@ class window2_manager():
         self.create_layout()
                 
     def create_widget(self):
+        #Window 2 diget
         self.window2 = QWidget()
         self.window2.setWindowTitle("electric usage calculator")
         
+        #Output widget
+        self.widget = QWidget()
+        self.textLabel = QLabel(self.widget)
+
     def create_and_connect_sumbit_button(self):
         self.sumbitButton2 = QPushButton("Submit2")
         self.sumbitButton2.clicked.connect(partial(self.button_click2, self))
@@ -68,6 +73,5 @@ class window2_manager():
         
         
         prints.base_data(self)
-        
-        
+
         print("total pay of small apartment " + str(total_cost_of_wats_in_checks_after_taxes))
