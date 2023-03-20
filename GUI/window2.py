@@ -76,5 +76,3 @@ class window2_manager():
         
         
         prints.base_data(self)
-
-        print("total pay of small apartment " + str(total_cost_of_wats_in_checks_after_taxes))

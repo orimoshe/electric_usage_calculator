@@ -37,6 +37,20 @@ def base_data(self):
         " קוטש " + "כפול " + str(round(g.PRICES_OF_WATS_IN_CHECK[check]* 100, 2)) + " אגורות " + " = " + \
         str(round(g.COST_OF_WATS_IN_CHECK[check], 2)) + " שח ללא מעמ" + "\n"
 
+    word = "הוספת מעמ"
+    sentence += word + "\n"
+    total_cost_in_check = 0.0
+    for check in range(g.NUMBER_OF_CHECKS):
+        total_cost_in_check += g.COST_OF_WATS_IN_CHECK[check]
+        sentence += str(round(g.COST_OF_WATS_IN_CHECK[check], 2))
+        if(check+1 != g.NUMBER_OF_CHECKS):
+            sentence += " + "
+    
+    sentence += " = " + str(total_cost_in_check) + " + " + str(g.SERVICE_TAXES) + " שח תשלום קבוע " 
+    total_cost_in_check += g.SERVICE_TAXES
+    sentence += str(total_cost_in_check) + " + 17% = " + str(g.TOTAL_COST_OF_WATS_IN_CHECKS_AFTER_TAXES) + "שח" + "\n"
+    sentence += " סהכ חשבון היחידה לתקופה זו " + str(g.TOTAL_COST_OF_WATS_IN_CHECKS_AFTER_TAXES) + "שח"
+        
     print_on_GUI(self, sentence)
 
 def print_on_GUI(self, word):
