@@ -56,12 +56,9 @@ def base_data(self):
 def print_on_GUI(self, word):
     
     self.textLabel.setText(word)
-    self.textLabel.setFont(QFont(word, 10))
     self.textLabel.adjustSize() 
 
     self.textLabel.move(100,100)
-    # self.widget.setGeometry(100,100,400,300)
-
 
     self.widget.setWindowTitle("Output")
     self.widget.show()
