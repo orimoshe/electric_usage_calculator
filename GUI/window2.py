@@ -34,15 +34,17 @@ class window2_manager():
         self.window2.setLayout(self.layout)
 
     def add_rows_to_layout(self):
-        info_parameters = ["start_date", "end_date","change_price_date", "number_of_wats_in_check", "prices_of_wats_in_check", "wats_of_small_apartment_now", "wats_of_both_apartments", \
-                            "last_wats_of_small_apartment", "service_tax"]
+        #TODO: parameters out of this function into other file
+        info_parameters = ["תאריך התחלת החשבון", "תאריך סוף החשבון","תאריך שינוי המחיר", "כמות הוואט בחשבון",\
+            "מחיר הוואט בחשבון", "צריכת הוואט בדירה הקטנה עכשיו", "צריכת הוואט בשתי הדירות", \
+                            "קריאת הוואט הקודמת בדירה הקטנה", "תשלום קבוע"]
         self.info = {}
             
         for parameter in info_parameters:
-            if(parameter == "change_price_date" or parameter == "number_of_wats_in_check" or \
-                parameter == "prices_of_wats_in_check"):
+            if(parameter == "תאריך שינוי המחיר" or parameter == "כמות הוואט בחשבון" or \
+                parameter == "מחיר הוואט בחשבון"):
                 for check in range(self.number_of_checks):
-                    item_name = parameter + "_" + str(check)
+                    item_name = parameter + " " + str(check+1)
                     
                     #TODO: these 3 lines should be a funciton use them below too    
                     self.info[item_name] = QLineEdit()            

@@ -15,20 +15,20 @@ def intialize_global_variables(self):
     CHANGE_PRICE_DATE = [0 for check in range(NUMBER_OF_CHECKS)]
     PRECENTAGE_OF_WATS_IN_CHECK = [0 for check in range(NUMBER_OF_CHECKS)]
 
-    SERVICE_TAXES = float(self.info["service_tax"].text())
+    SERVICE_TAXES = float(self.info["תשלום קבוע"].text())
     
     for check in range(NUMBER_OF_CHECKS):
-        number_of_wats_in_check_name = "number_of_wats_in_check" + "_" + str(check)
-        prices_of_wats_in_check_name = "prices_of_wats_in_check" + "_" + str(check)
-        change_price_date_name = "change_price_date" + "_" + str(check)
+        number_of_wats_in_check_name = "כמות הוואט בחשבון" + " " + str(check+1)
+        prices_of_wats_in_check_name = "מחיר הוואט בחשבון" + " " + str(check+1)
+        change_price_date_name = "תאריך שינוי המחיר" + " " + str(check+1)
         
         NUMBER_OF_WATS_IN_CHECK[check] = float(self.info[number_of_wats_in_check_name].text())
         PRICES_OF_WATS_IN_CHECK[check] = float(self.info[prices_of_wats_in_check_name].text())
         CHANGE_PRICE_DATE[check] = float(self.info[change_price_date_name].text())
         
-    LAST_WATS_OF_SMALL_APARTMENT = float(self.info["last_wats_of_small_apartment"].text())
-    WATS_OF_SMALL_APARTMENT_NOW = float(self.info["wats_of_small_apartment_now"].text())
-    WATS_OF_BOTH_APARTMENTS = float(self.info["wats_of_both_apartments"].text())
+    LAST_WATS_OF_SMALL_APARTMENT = float(self.info["קריאת הוואט הקודמת בדירה הקטנה"].text())
+    WATS_OF_SMALL_APARTMENT_NOW = float(self.info["צריכת הוואט בדירה הקטנה עכשיו"].text())
+    WATS_OF_BOTH_APARTMENTS = float(self.info["צריכת הוואט בשתי הדירות"].text())
     
-    START_DATE = float(self.info["start_date"].text())
-    END_DATE = float(self.info["end_date"].text())
+    START_DATE = float(self.info["תאריך התחלת החשבון"].text())
+    END_DATE = float(self.info["תאריך סוף החשבון"].text())
