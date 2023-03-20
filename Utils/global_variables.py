@@ -1,4 +1,4 @@
-COUNTRY_TAXES = 0.17    
+COUNTRY_TAXES = 0.17
 NUMBER_OF_CHECKS_LAYOUT = 0
 
 def intialize_global_variables(self):
