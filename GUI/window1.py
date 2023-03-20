@@ -18,16 +18,22 @@ class window1_manager(QWidget):
         
     def create_number_of_checks(self):
         self.number_of_checks = QLineEdit()
+        self.number_of_checks.setAlignment(QtCore.Qt.AlignRight)
         self.number_of_checks.setValidator(QDoubleValidator())
     
     def create_and_connect_sumbit_button(self):
-        self.sumbitButton1 = QPushButton("Submit1")
+        self.sumbitButton1 = QPushButton("לחץ")
         self.sumbitButton1.clicked.connect(partial(self.button_click1, self))
     
     def create_layout(self):
-        self.layout = QFormLayout()
-        self.layout.addRow("number_of_checks", self.number_of_checks)
-        self.layout.addRow("Button1", self.sumbitButton1)
+        self.layout = QHBoxLayout()
+        
+        top_label = QLabel()
+        top_label.setText("כמות התעריפים") 
+        
+        self.layout.addWidget(self.sumbitButton1)
+        self.layout.addWidget(self.number_of_checks)
+        self.layout.addWidget(top_label)
         self.setLayout(self.layout)
 
     def button_click1(self, a,b):
