@@ -22,6 +22,7 @@ class window2_manager():
         self.widget = QWidget()
         self.textLabel = QLabel(self.widget)
 
+
     def create_and_connect_sumbit_button(self):
         self.sumbitButton2 = QPushButton("Submit2")
         self.sumbitButton2.clicked.connect(partial(self.button_click2, self))
@@ -65,7 +66,9 @@ class window2_manager():
         
     def calculate_data(self):
         precentage_of_wats_in_check = utils.calculate_precentage_of_wats_in_check()    
-        wats_of_small_apartment_in_all_checks = utils.calculate_wats_of_small_apartment_in_all_checks()   
+        wats_of_small_apartment_in_all_checks = utils.calculate_wats_of_small_apartment_in_all_checks()
+           
+        #TODO: dont pass argument, have a global variable for that
         cost_of_wats_in_check = utils.calculate_cost_of_wats_in_check(precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks)
         total_cost_of_wats_in_checks_before_taxes = utils.calculate_total_cost_of_wats_in_checks_before_taxes(cost_of_wats_in_check)
 
