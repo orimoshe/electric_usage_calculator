@@ -28,7 +28,8 @@ class window2_manager():
         self.sumbitButton2.clicked.connect(partial(self.button_click2, self))
 
     def create_layout(self):
-        self.layout = QFormLayout()
+        self.layout = QGridLayout()
+        
         self.add_rows_to_layout()
         self.window2.setLayout(self.layout)
 
@@ -43,21 +44,32 @@ class window2_manager():
                 for check in range(self.number_of_checks):
                     item_name = parameter + "_" + str(check)
                     
+                    #TODO: these 3 lines should be a funciton use them below too    
                     self.info[item_name] = QLineEdit()            
+                    self.info[item_name].setAlignment(QtCore.Qt.AlignRight)
                     self.info[item_name].setValidator(QDoubleValidator())
             else:
                 item_name = parameter
+
                 self.info[item_name] = QLineEdit()            
+                self.info[item_name].setAlignment(QtCore.Qt.AlignRight)
                 self.info[item_name].setValidator(QDoubleValidator())
-
+        index=0
         for item_name, item_value in self.info.items():
-            self.add_number_of_wats_row(item_name, item_value)
+            self.add_number_of_wats_row(item_name, item_value, index)
+            index+=1
 
-        self.layout.addRow("Button2", self.sumbitButton2)
+        #TODO: change sumbitButton2 name and  sumbitButton1 name from window1
+        self.layout.addWidget(self.sumbitButton2, len(self.info.items()) + 1, 0)
         
-    def add_number_of_wats_row(self, item_name, item_value):
-            self.layout.addRow(item_name, item_value)
+    def add_number_of_wats_row(self, item_name, item_value, index):
+        info_label = QLabel()
+        info_label.setText(item_name) 
         
+        self.layout.addWidget(item_value, index, 0)
+        self.layout.addWidget(info_label, index, 1)
+
+
     def button_click2(self, a, b):
         utils.get_user_inputs(self)
 
