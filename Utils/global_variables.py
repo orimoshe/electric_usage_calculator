@@ -1,5 +1,8 @@
 COUNTRY_TAXES = 0.17
 NUMBER_OF_CHECKS_LAYOUT = 0
+INPUT_NAMES = ["תאריך התחלת החשבון", "תאריך סוף החשבון","תאריך שינוי המחיר", "כמות הוואט בחשבון",\
+            "מחיר הוואט בחשבון", "צריכת הוואט בדירה הקטנה עכשיו", "צריכת הוואט בשתי הדירות", \
+                            "קריאת הוואט הקודמת בדירה הקטנה", "תשלום קבוע"]
 
 def intialize_global_variables(self):
     global NUMBER_OF_WATS_IN_CHECK, NUMBER_OF_CHECKS, WATS_OF_SMALL_APARTMENT_NOW, TOTAL_COST_OF_WATS_IN_CHECKS_AFTER_TAXES, \
