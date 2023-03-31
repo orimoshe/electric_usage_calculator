@@ -1,5 +1,6 @@
 import Utils.global_variables as g
 
+#TODOOO: use f"string" instead of +
 def base_data(self):
     word = " חשבון החשמל לתקופה שבין"
     word2 = " עד "
@@ -19,18 +20,18 @@ def base_data(self):
 
     word = "בחשבון זה חברת חשמל חייבה ב "
     word2 = " תעריפים כדלהלן:"
-    sentence += word + str(g.NUMBER_OF_CHECKS) + word2 + "\n"
+    sentence += word + str(self.bill_info.NUMBER_OF_CHECKS) + word2 + "\n"
 
     word = " עד "
     word2 = " אגורות "
     word3 = " שהם "
-    for check in range(g.NUMBER_OF_CHECKS):
+    for check in range(self.bill_info.NUMBER_OF_CHECKS):
         sentence += str(check+1) + "." + word + str(g.CHANGE_PRICE_DATE[check]) + " " + str(round(g.PRICES_OF_WATS_IN_CHECK[check]* 100, 2)) \
             + word2 + str(g.NUMBER_OF_WATS_IN_CHECK[check]) + word3 + str(round(g.PRECENTAGE_OF_WATS_IN_CHECK[check] * 100)) + "%" + "\n"
     
     word = "\n" + "חישוב תשלום היחידה"
     sentence += word + "\n"
-    for check in range(g.NUMBER_OF_CHECKS):
+    for check in range(self.bill_info.NUMBER_OF_CHECKS):
         sentence += str(check+1) + ". " + str(round(g.PRECENTAGE_OF_WATS_IN_CHECK[check] * 100)) + "% " + "מתוך " + \
         str(round(g.WATS_USAGE_OF_SMALL_APARTMENT, 1)) + " קוטש = " + str(round(g.WATS_OF_SMALL_APARTMENT_IN_CHECK[check], 1)) + \
         " קוטש " + "כפול " + str(round(g.PRICES_OF_WATS_IN_CHECK[check]* 100, 2)) + " אגורות " + " = " + \
@@ -39,10 +40,10 @@ def base_data(self):
     word = "\n" + "הוספת מעמ"
     sentence += word + "\n"
     total_cost_in_check = 0.0
-    for check in range(g.NUMBER_OF_CHECKS):
+    for check in range(self.bill_info.NUMBER_OF_CHECKS):
         total_cost_in_check += g.COST_OF_WATS_IN_CHECK[check]
         sentence += str(round(g.COST_OF_WATS_IN_CHECK[check], 2))
-        if(check+1 != g.NUMBER_OF_CHECKS):
+        if(check+1 != self.bill_info.NUMBER_OF_CHECKS):
             sentence += " + "
     
     sentence += " = " + str(total_cost_in_check) + " + " + str(g.SERVICE_TAXES) + " שח תשלום קבוע " 

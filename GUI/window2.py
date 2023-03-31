@@ -2,6 +2,7 @@ from Utils.imports import *
 import Utils.utils as utils 
 import Utils.prints as prints
 import Utils.global_variables as g
+from Utils.Bill import *
 
 class window2_manager():
     def __init__(self, number_of_checks, parent=None):
@@ -63,15 +64,16 @@ class window2_manager():
 
 
     def button_click2(self, a, b):
+        self.bill_info = Bill(NUMBER_OF_CHECKS = self.number_of_checks)
         utils.get_user_inputs(self)
         self.calculate_data()
         
     def calculate_data(self):
-        precentage_of_wats_in_check = utils.calculate_precentage_of_wats_in_check()    
+        precentage_of_wats_in_check = utils.calculate_precentage_of_wats_in_check(self)    
         wats_of_small_apartment_in_all_checks = utils.calculate_wats_of_small_apartment_in_all_checks()
            
         #TODO: dont pass argument, have a global variable for that
-        cost_of_wats_in_check = utils.calculate_cost_of_wats_in_check(precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks)
+        cost_of_wats_in_check = utils.calculate_cost_of_wats_in_check(self, precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks)
         total_cost_of_wats_in_checks_before_taxes = utils.calculate_total_cost_of_wats_in_checks_before_taxes(cost_of_wats_in_check)
 
         total_cost_of_wats_in_checks_after_taxes = utils.calculate_total_cost_of_wats_in_checks_after_taxes(total_cost_of_wats_in_checks_before_taxes)

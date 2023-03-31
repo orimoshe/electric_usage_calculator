@@ -3,10 +3,10 @@ import Utils.global_variables as g
 def get_user_inputs(self):
     g.intialize_global_variables(self)
         
-def calculate_precentage_of_wats_in_check():
-    precentage_of_wats_in_check = [0 for check in range(g.NUMBER_OF_CHECKS)]
+def calculate_precentage_of_wats_in_check(self):
+    precentage_of_wats_in_check = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
     
-    for check in range(g.NUMBER_OF_CHECKS):
+    for check in range(self.bill_info.NUMBER_OF_CHECKS):
         precentage_of_wats_in_check[check] = g.NUMBER_OF_WATS_IN_CHECK[check]/g.WATS_OF_BOTH_APARTMENTS
         g.PRECENTAGE_OF_WATS_IN_CHECK[check] = precentage_of_wats_in_check[check]
     return precentage_of_wats_in_check
@@ -15,11 +15,11 @@ def calculate_wats_of_small_apartment_in_all_checks():
     g.WATS_USAGE_OF_SMALL_APARTMENT = g.WATS_OF_SMALL_APARTMENT_NOW-g.LAST_WATS_OF_SMALL_APARTMENT 
     return (g.WATS_USAGE_OF_SMALL_APARTMENT)
     
-def calculate_cost_of_wats_in_check(precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks):
-    cost_of_wats_in_check = [0 for check in range(g.NUMBER_OF_CHECKS)]
+def calculate_cost_of_wats_in_check(self, precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks):
+    cost_of_wats_in_check = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
 
     
-    for check in range(g.NUMBER_OF_CHECKS):
+    for check in range(self.bill_info.NUMBER_OF_CHECKS):
         #TODO: put and replace using this global variable in the calculation 
         g.WATS_OF_SMALL_APARTMENT_IN_CHECK[check] = precentage_of_wats_in_check[check] * wats_of_small_apartment_in_all_checks
         
