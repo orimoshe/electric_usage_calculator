@@ -1,0 +1,7 @@
+from dataclasses import dataclass
+@dataclass
+class Bill:
+    asda : float
+    
+    def create_empty_checks(self) -> list:
+        print("create Bill")
