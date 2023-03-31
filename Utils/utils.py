@@ -37,9 +37,9 @@ def calculate_total_cost_of_wats_in_checks_before_taxes(cost_of_wats_in_check):
     return total_cost_of_wats_in_checks_before_taxes
     
 #TODO: use global total_cost_of_wats_in_checks_after_taxes
-def calculate_total_cost_of_wats_in_checks_after_taxes(total_cost_of_wats_in_checks_before_taxes):
+def calculate_total_cost_of_wats_in_checks_after_taxes(self, total_cost_of_wats_in_checks_before_taxes):
     total_cost_of_wats_in_checks_after_taxes = total_cost_of_wats_in_checks_before_taxes
     total_cost_of_wats_in_checks_after_taxes += g.SERVICE_TAXES
-    total_cost_of_wats_in_checks_after_taxes += total_cost_of_wats_in_checks_after_taxes * g.COUNTRY_TAXES
+    total_cost_of_wats_in_checks_after_taxes += total_cost_of_wats_in_checks_after_taxes * self.bill_info.COUNTRY_TAXES
     g.TOTAL_COST_OF_WATS_IN_CHECKS_AFTER_TAXES = total_cost_of_wats_in_checks_after_taxes
     return total_cost_of_wats_in_checks_after_taxes

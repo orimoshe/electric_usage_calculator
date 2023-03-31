@@ -1,5 +1,7 @@
 from GUI.window2 import window2_manager
 from Utils.imports import *
+from Utils.Bill import *
+
 class window1_manager(QWidget):
     def __init__(self,parent=None):
         super().__init__(parent)
@@ -37,5 +39,6 @@ class window1_manager(QWidget):
         self.setLayout(self.layout)
 
     def button_click1(self, a,b):
-        window2_instance = window2_manager(self.number_of_checks)
+        self.bill_info = Bill(NUMBER_OF_CHECKS = int(self.number_of_checks.text()))
+        window2_instance = window2_manager(self.bill_info)
         window2_instance.window2.show()

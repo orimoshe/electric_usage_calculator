@@ -1,19 +1,10 @@
 from Utils.Bill import *
 
-COUNTRY_TAXES = 0.17
-NUMBER_OF_CHECKS_LAYOUT = 0
-INPUT_NAMES = ["תאריך התחלת החשבון", "תאריך סוף החשבון","תאריך שינוי המחיר", "כמות הוואט בחשבון",\
-            "מחיר הוואט בחשבון", "צריכת הוואט בדירה הקטנה עכשיו", "צריכת הוואט בשתי הדירות", \
-                            "קריאת הוואט הקודמת בדירה הקטנה", "תשלום קבוע"]
-
 def intialize_global_variables(self):
     global NUMBER_OF_WATS_IN_CHECK, WATS_OF_SMALL_APARTMENT_NOW, TOTAL_COST_OF_WATS_IN_CHECKS_AFTER_TAXES, \
         WATS_OF_BOTH_APARTMENTS, LAST_WATS_OF_SMALL_APARTMENT, PRICES_OF_WATS_IN_CHECK, CHANGE_PRICE_DATE, \
         SERVICE_TAXES, START_DATE, END_DATE, PRECENTAGE_OF_WATS_IN_CHECK, COST_OF_WATS_IN_CHECK, WATS_OF_SMALL_APARTMENT_IN_CHECK
     
-    # bill_info.NUMBER_OF_CHECKS = self.number_of_checks
-    # NUMBER_OF_CHECKS = self.number_of_checks
-
     COST_OF_WATS_IN_CHECK = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
     WATS_OF_SMALL_APARTMENT_IN_CHECK = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
     NUMBER_OF_WATS_IN_CHECK = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)] 
