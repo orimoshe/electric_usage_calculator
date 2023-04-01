@@ -26,15 +26,15 @@ def base_data(self):
     word2 = " אגורות "
     word3 = " שהם "
     for check in range(self.bill_info.NUMBER_OF_CHECKS):
-        sentence += str(check+1) + "." + word + str(g.CHANGE_PRICE_DATE[check]) + " " + str(round(g.PRICES_OF_WATS_IN_CHECK[check]* 100, 2)) \
-            + word2 + str(g.NUMBER_OF_WATS_IN_CHECK[check]) + word3 + str(round(g.PRECENTAGE_OF_WATS_IN_CHECK[check] * 100)) + "%" + "\n"
+        sentence += str(check+1) + "." + word + str(self.all_checks[check].CHANGE_PRICE_DATE) + " " + str(round(self.all_checks[check].PRICES_OF_WATS_IN_CHECK* 100, 2)) \
+            + word2 + str(self.all_checks[check].NUMBER_OF_WATS_IN_CHECK) + word3 + str(round(g.PRECENTAGE_OF_WATS_IN_CHECK[check] * 100)) + "%" + "\n"
     
     word = "\n" + "חישוב תשלום היחידה"
     sentence += word + "\n"
     for check in range(self.bill_info.NUMBER_OF_CHECKS):
         sentence += str(check+1) + ". " + str(round(g.PRECENTAGE_OF_WATS_IN_CHECK[check] * 100)) + "% " + "מתוך " + \
         str(round(g.WATS_USAGE_OF_SMALL_APARTMENT, 1)) + " קוטש = " + str(round(g.WATS_OF_SMALL_APARTMENT_IN_CHECK[check], 1)) + \
-        " קוטש " + "כפול " + str(round(g.PRICES_OF_WATS_IN_CHECK[check]* 100, 2)) + " אגורות " + " = " + \
+        " קוטש " + "כפול " + str(round(self.all_checks[check].PRICES_OF_WATS_IN_CHECK* 100, 2)) + " אגורות " + " = " + \
         str(round(g.COST_OF_WATS_IN_CHECK[check], 2)) + " שח ללא מעמ" + "\n"
 
     word = "\n" + "הוספת מעמ"

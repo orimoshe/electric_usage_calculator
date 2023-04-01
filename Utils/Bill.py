@@ -1,5 +1,4 @@
 from dataclasses import dataclass, field
-from typing import List
 
 #TODO: add "kw_only=True" to dataclass as argument
 def generate_input_names() -> list:
