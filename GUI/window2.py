@@ -73,8 +73,8 @@ class window2_manager():
         wats_of_small_apartment_in_all_checks = utils.calculate_wats_of_small_apartment_in_all_checks()
            
         #TODO: dont pass argument, have a global variable for that
-        cost_of_wats_in_check = utils.calculate_cost_of_wats_in_check(self, precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks)
-        total_cost_of_wats_in_checks_before_taxes = utils.calculate_total_cost_of_wats_in_checks_before_taxes(cost_of_wats_in_check)
+        utils.calculate_cost_of_wats_in_check(self, precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks)
+        total_cost_of_wats_in_checks_before_taxes = utils.calculate_total_cost_of_wats_in_checks_before_taxes(self)
 
         total_cost_of_wats_in_checks_after_taxes = utils.calculate_total_cost_of_wats_in_checks_after_taxes(self, total_cost_of_wats_in_checks_before_taxes)
         

@@ -14,11 +14,12 @@ def create_checks(self, number_of_wats_in_check_name, prices_of_wats_in_check_na
 def intialize_global_variables(self):
     global WATS_OF_SMALL_APARTMENT_NOW, TOTAL_COST_OF_WATS_IN_CHECKS_AFTER_TAXES, \
         WATS_OF_BOTH_APARTMENTS, LAST_WATS_OF_SMALL_APARTMENT, \
-        SERVICE_TAXES, START_DATE, END_DATE, PRECENTAGE_OF_WATS_IN_CHECK, COST_OF_WATS_IN_CHECK, WATS_OF_SMALL_APARTMENT_IN_CHECK
+        SERVICE_TAXES, START_DATE, END_DATE
     
-    COST_OF_WATS_IN_CHECK = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
-    WATS_OF_SMALL_APARTMENT_IN_CHECK = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
-    PRECENTAGE_OF_WATS_IN_CHECK = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
+    #TODOO: add this three into Check struct
+    # COST_OF_WATS_IN_CHECK = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
+    # WATS_OF_SMALL_APARTMENT_IN_CHECK = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
+    # PRECENTAGE_OF_WATS_IN_CHECK = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
 
     SERVICE_TAXES = float(self.info["תשלום קבוע"].text())
     

@@ -8,7 +8,8 @@ def calculate_precentage_of_wats_in_check(self):
     
     for check in range(self.bill_info.NUMBER_OF_CHECKS):
         precentage_of_wats_in_check[check] = self.all_checks[check].NUMBER_OF_WATS_IN_CHECK/g.WATS_OF_BOTH_APARTMENTS
-        g.PRECENTAGE_OF_WATS_IN_CHECK[check] = precentage_of_wats_in_check[check]
+        self.all_checks[check].PRECENTAGE_OF_WATS_IN_CHECK = precentage_of_wats_in_check[check]
+    #TODO: kill this return!
     return precentage_of_wats_in_check
 
 def calculate_wats_of_small_apartment_in_all_checks():
@@ -16,23 +17,21 @@ def calculate_wats_of_small_apartment_in_all_checks():
     return (g.WATS_USAGE_OF_SMALL_APARTMENT)
     
 def calculate_cost_of_wats_in_check(self, precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks):
-    cost_of_wats_in_check = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
-
     
     for check in range(self.bill_info.NUMBER_OF_CHECKS):
-        #TODO: put and replace using this global variable in the calculation 
-        g.WATS_OF_SMALL_APARTMENT_IN_CHECK[check] = precentage_of_wats_in_check[check] * wats_of_small_apartment_in_all_checks
+        self.all_checks[check].WATS_OF_SMALL_APARTMENT_IN_CHECK = precentage_of_wats_in_check[check] * wats_of_small_apartment_in_all_checks
         
-        cost_of_wats_in_check[check] = precentage_of_wats_in_check[check] * \
+        self.all_checks[check].COST_OF_WATS_IN_CHECK = precentage_of_wats_in_check[check] * \
             wats_of_small_apartment_in_all_checks * self.all_checks[check].PRICES_OF_WATS_IN_CHECK
-        cost_of_wats_in_check[check] = round(cost_of_wats_in_check[check])
-    g.COST_OF_WATS_IN_CHECK = cost_of_wats_in_check
-    return cost_of_wats_in_check
+        
+        self.all_checks[check].COST_OF_WATS_IN_CHECK = round(self.all_checks[check].COST_OF_WATS_IN_CHECK)
 
-def calculate_total_cost_of_wats_in_checks_before_taxes(cost_of_wats_in_check):
+def calculate_total_cost_of_wats_in_checks_before_taxes(self):
     total_cost_of_wats_in_checks_before_taxes = 0.0
-    for cost_of_wats_in_specific_check in cost_of_wats_in_check:
-        total_cost_of_wats_in_checks_before_taxes += cost_of_wats_in_specific_check
+
+    for check in range(self.bill_info.NUMBER_OF_CHECKS):
+        total_cost_of_wats_in_checks_before_taxes += self.all_checks[check].COST_OF_WATS_IN_CHECK
+    
     return total_cost_of_wats_in_checks_before_taxes
     
 #TODO: use global total_cost_of_wats_in_checks_after_taxes

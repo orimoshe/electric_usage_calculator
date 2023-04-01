@@ -11,6 +11,6 @@ class Check:
     # SERVICE_TAXES : float
     # START_DATE : float
     # END_DATE : float
-    # PRECENTAGE_OF_WATS_IN_CHECK : float = 0
-    # COST_OF_WATS_IN_CHECK : float = 0
-    # WATS_OF_SMALL_APARTMENT_IN_CHECK : float = 0
+    PRECENTAGE_OF_WATS_IN_CHECK : float = 0
+    COST_OF_WATS_IN_CHECK : float = 0
+    WATS_OF_SMALL_APARTMENT_IN_CHECK : float = 0
