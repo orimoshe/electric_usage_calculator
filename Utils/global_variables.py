@@ -4,8 +4,6 @@ from Utils.Check import *
 def create_checks(self, number_of_wats_in_check_name, prices_of_wats_in_check_name, change_price_date_name):
     self.all_checks = []
     for check in range(self.bill_info.NUMBER_OF_CHECKS):
-        
-        
         self.all_checks.append(Check(
                                 NUMBER_OF_WATS_IN_CHECK = float(self.info[number_of_wats_in_check_name[check]].text()),
                                 
