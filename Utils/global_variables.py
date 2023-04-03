@@ -16,11 +16,6 @@ def intialize_global_variables(self):
         WATS_OF_BOTH_APARTMENTS, LAST_WATS_OF_SMALL_APARTMENT, \
         SERVICE_TAXES, START_DATE, END_DATE
     
-    #TODOO: add this three into Check struct
-    # COST_OF_WATS_IN_CHECK = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
-    # WATS_OF_SMALL_APARTMENT_IN_CHECK = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
-    # PRECENTAGE_OF_WATS_IN_CHECK = [0 for check in range(self.bill_info.NUMBER_OF_CHECKS)]
-
     SERVICE_TAXES = float(self.info["תשלום קבוע"].text())
     
     number_of_wats_in_check_name = []
