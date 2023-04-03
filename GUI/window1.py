@@ -5,10 +5,10 @@ from Utils.Bill import *
 class window1_manager(QWidget):
     def __init__(self,parent=None):
         super().__init__(parent)
-        self.create_widget()
+        self.create_window1()
         self.get_input_from_user()
       
-    def create_widget(self):
+    def create_window1(self):
         self.window1 = QWidget()
         self.window1.resize(260,100)
         self.window1.setWindowTitle("electric usage calculator")  
@@ -19,7 +19,6 @@ class window1_manager(QWidget):
         self.create_layout()
         
     def create_input_lines(self):
-        #make variables local and not self
         self.number_of_checks = self.create_double_line_edit()
         self.service_taxes = self.create_double_line_edit()
         
