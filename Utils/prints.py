@@ -46,8 +46,8 @@ def base_data(self):
         if(check+1 != self.bill_info.NUMBER_OF_CHECKS):
             sentence += " + "
     
-    sentence += " = " + str(total_cost_in_check) + " + " + str(g.SERVICE_TAXES) + " שח תשלום קבוע " 
-    total_cost_in_check += g.SERVICE_TAXES
+    sentence += " = " + str(total_cost_in_check) + " + " + str(self.bill_info.SERVICE_TAXES) + " שח תשלום קבוע " 
+    total_cost_in_check += self.bill_info.SERVICE_TAXES
     sentence += str(total_cost_in_check) + " + 17% = " + str(g.TOTAL_COST_OF_WATS_IN_CHECKS_AFTER_TAXES) + "שח" + "\n"
     sentence += " סהכ חשבון היחידה לתקופה זו " + str(g.TOTAL_COST_OF_WATS_IN_CHECKS_AFTER_TAXES) + "שח"
         

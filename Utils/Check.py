@@ -8,7 +8,6 @@ class Check:
     # LAST_WATS_OF_SMALL_APARTMENT : float
     PRICES_OF_WATS_IN_CHECK : float = 0
     CHANGE_PRICE_DATE : float = 0
-    # SERVICE_TAXES : float
     # START_DATE : float
     # END_DATE : float
     PRECENTAGE_OF_WATS_IN_CHECK : float = 0

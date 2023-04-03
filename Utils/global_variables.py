@@ -14,9 +14,7 @@ def create_checks(self, number_of_wats_in_check_name, prices_of_wats_in_check_na
 def intialize_global_variables(self):
     global WATS_OF_SMALL_APARTMENT_NOW, TOTAL_COST_OF_WATS_IN_CHECKS_AFTER_TAXES, \
         WATS_OF_BOTH_APARTMENTS, LAST_WATS_OF_SMALL_APARTMENT, \
-        SERVICE_TAXES, START_DATE, END_DATE
-    
-    SERVICE_TAXES = float(self.info["תשלום קבוע"].text())
+        START_DATE, END_DATE
     
     number_of_wats_in_check_name = []
     prices_of_wats_in_check_name = []
