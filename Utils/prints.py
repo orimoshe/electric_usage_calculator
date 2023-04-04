@@ -7,13 +7,13 @@ def base_data(self):
     sentence = word + " " + str(g.START_DATE) + word2 + str(g.END_DATE) + ":\n\n"
         
     word = "בחשבון זה צריכה כוללת "
-    sentence += word + str(g.WATS_OF_BOTH_APARTMENTS) + " קוטש" + "\n\n"
+    sentence += word + str(self.bill_info.WATS_OF_BOTH_APARTMENTS) + " קוטש" + "\n\n"
     
     word = "קריאה עדכנית של היחידה "
-    sentence += word + str(g.WATS_OF_SMALL_APARTMENT_NOW) + "\n"
+    sentence += word + str(self.bill_info.WATS_OF_SMALL_APARTMENT_NOW) + "\n"
     
     word = "קריאה קודמת של היחידה "
-    sentence += word + str(g.LAST_WATS_OF_SMALL_APARTMENT) + "\n\n"
+    sentence += word + str(self.bill_info.LAST_WATS_OF_SMALL_APARTMENT) + "\n\n"
     
     word = "צריכה של היחידה בתקופה זו "
     sentence += word + str(round(g.WATS_USAGE_OF_SMALL_APARTMENT, 1)) + " קוטש" + "\n\n"

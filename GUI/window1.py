@@ -21,6 +21,9 @@ class window1_manager(QWidget):
     def create_input_lines(self):
         self.number_of_checks = self.create_double_line_edit()
         self.service_taxes = self.create_double_line_edit()
+        self.last_wats_of_small_apartment_lineEdit = self.create_double_line_edit()
+        self.wats_of_small_apartment_now_lineEdit = self.create_double_line_edit()
+        self.wats_of_both_apartments_lineEdit = self.create_double_line_edit()
         
     def create_double_line_edit(self):
         double_line_edit = QLineEdit()
@@ -40,6 +43,16 @@ class window1_manager(QWidget):
         
         service_taxes_name = QLabel()
         service_taxes_name.setText("תשלום קבוע") 
+
+        last_wats_of_small_apartment_name = QLabel()
+        last_wats_of_small_apartment_name.setText("קריאת הוואט הקודמת בדירה הקטנה") 
+        
+        wats_of_small_apartment_now_name = QLabel()
+        wats_of_small_apartment_now_name.setText("צריכת הוואט בדירה הקטנה עכשיו") 
+        
+        wats_of_both_apartments_name = QLabel()
+        wats_of_both_apartments_name.setText("צריכת הוואט בשתי הדירות")
+        
         
         self.layout.addWidget(self.number_of_checks, 0, 0)
         self.layout.addWidget(number_of_checks_name, 0, 1)
@@ -47,12 +60,28 @@ class window1_manager(QWidget):
         self.layout.addWidget(self.service_taxes, 1, 0)
         self.layout.addWidget(service_taxes_name, 1, 1)
 
-        self.layout.addWidget(self.sumbitButton1, 2, 0)
+        self.layout.addWidget(self.last_wats_of_small_apartment_lineEdit, 2, 0)
+        self.layout.addWidget(last_wats_of_small_apartment_name, 2, 1)
+
+        self.layout.addWidget(self.wats_of_small_apartment_now_lineEdit, 3, 0)
+        self.layout.addWidget(wats_of_small_apartment_now_name, 3, 1)
+
+        self.layout.addWidget(self.wats_of_both_apartments_lineEdit, 4, 0)
+        self.layout.addWidget(wats_of_both_apartments_name, 4, 1)
+
+
+        self.layout.addWidget(self.sumbitButton1, 5, 0)
         
         self.setLayout(self.layout)
 
     def create_bill_info(self):
-        self.bill_info = Bill(NUMBER_OF_CHECKS = int(self.number_of_checks.text()), SERVICE_TAXES = float(self.service_taxes.text()))
+        self.bill_info = Bill(
+            NUMBER_OF_CHECKS = int(self.number_of_checks.text()), 
+            SERVICE_TAXES = float(self.service_taxes.text()),
+            LAST_WATS_OF_SMALL_APARTMENT = float(self.last_wats_of_small_apartment_lineEdit.text()),
+            WATS_OF_SMALL_APARTMENT_NOW = float(self.wats_of_small_apartment_now_lineEdit.text()),
+            WATS_OF_BOTH_APARTMENTS = float(self.wats_of_both_apartments_lineEdit.text())
+            )
     
     def button_click1(self, a,b):
         self.create_bill_info()
