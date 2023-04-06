@@ -2,10 +2,11 @@ from dataclasses import dataclass, field
 
 #TODO: add "kw_only=True" to dataclass as argument
 def generate_input_names() -> list:
-    return ["תאריך התחלת החשבון", "תאריך סוף החשבון","תאריך שינוי המחיר", "כמות הוואט בחשבון",\
-                                "מחיר הוואט בחשבון"]
+    return ["תאריך שינוי המחיר", "כמות הוואט בחשבון", "מחיר הוואט בחשבון"]
 @dataclass(frozen=True)
 class Bill:
+    START_DATE : float
+    END_DATE : float
     NUMBER_OF_CHECKS : int
     LAST_WATS_OF_SMALL_APARTMENT : float
     WATS_OF_SMALL_APARTMENT_NOW : float

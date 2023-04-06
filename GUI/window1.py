@@ -24,6 +24,8 @@ class window1_manager(QWidget):
         self.last_wats_of_small_apartment_lineEdit = self.create_double_line_edit()
         self.wats_of_small_apartment_now_lineEdit = self.create_double_line_edit()
         self.wats_of_both_apartments_lineEdit = self.create_double_line_edit()
+        self.start_date_lineEdit = self.create_double_line_edit()
+        self.end_date_lineEdit = self.create_double_line_edit()
         
     def create_double_line_edit(self):
         double_line_edit = QLineEdit()
@@ -53,6 +55,12 @@ class window1_manager(QWidget):
         wats_of_both_apartments_name = QLabel()
         wats_of_both_apartments_name.setText("צריכת הוואט בשתי הדירות")
         
+        start_date_name = QLabel()
+        start_date_name.setText("תאריך תחילת החשבון")
+        
+        end_date_name = QLabel()
+        end_date_name.setText("תאריך סוף החשבון")
+        
         
         self.layout.addWidget(self.number_of_checks, 0, 0)
         self.layout.addWidget(number_of_checks_name, 0, 1)
@@ -69,8 +77,14 @@ class window1_manager(QWidget):
         self.layout.addWidget(self.wats_of_both_apartments_lineEdit, 4, 0)
         self.layout.addWidget(wats_of_both_apartments_name, 4, 1)
 
+        self.layout.addWidget(self.start_date_lineEdit, 5, 0)
+        self.layout.addWidget(start_date_name, 5, 1)
 
-        self.layout.addWidget(self.sumbitButton1, 5, 0)
+        self.layout.addWidget(self.end_date_lineEdit, 6, 0)
+        self.layout.addWidget(end_date_name, 6, 1)
+
+
+        self.layout.addWidget(self.sumbitButton1, 7, 0)
         
         self.setLayout(self.layout)
 
@@ -80,7 +94,9 @@ class window1_manager(QWidget):
             SERVICE_TAXES = float(self.service_taxes.text()),
             LAST_WATS_OF_SMALL_APARTMENT = float(self.last_wats_of_small_apartment_lineEdit.text()),
             WATS_OF_SMALL_APARTMENT_NOW = float(self.wats_of_small_apartment_now_lineEdit.text()),
-            WATS_OF_BOTH_APARTMENTS = float(self.wats_of_both_apartments_lineEdit.text())
+            WATS_OF_BOTH_APARTMENTS = float(self.wats_of_both_apartments_lineEdit.text()),
+            START_DATE = float(self.start_date_lineEdit.text()),
+            END_DATE = float(self.end_date_lineEdit.text())
             )
     
     def button_click1(self, a,b):

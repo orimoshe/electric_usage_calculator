@@ -4,7 +4,7 @@ import Utils.global_variables as g
 def base_data(self):
     word = " חשבון החשמל לתקופה שבין"
     word2 = " עד "
-    sentence = word + " " + str(g.START_DATE) + word2 + str(g.END_DATE) + ":\n\n"
+    sentence = word + " " + str(self.bill_info.START_DATE) + word2 + str(self.bill_info.END_DATE) + ":\n\n"
         
     word = "בחשבון זה צריכה כוללת "
     sentence += word + str(self.bill_info.WATS_OF_BOTH_APARTMENTS) + " קוטש" + "\n\n"
