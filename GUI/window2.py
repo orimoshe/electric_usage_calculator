@@ -2,11 +2,13 @@ from Utils.imports import *
 import Utils.utils as utils 
 import Utils.prints as prints
 import Utils.global_variables as g
+from Utils.Bill import *
 
 class window2_manager():
-    def __init__(self, number_of_checks, parent=None):
-        super().__init__()        
-        self.number_of_checks = int(number_of_checks.text())
+    def __init__(self, bill_info, parent=None):
+        super().__init__()
+        
+        self.bill_info = bill_info
         self.create_complete_input_window()
     
     def create_complete_input_window(self):
@@ -33,10 +35,10 @@ class window2_manager():
 
     def add_rows_to_layout(self):
         self.info = {}
-        for input_name in g.INPUT_NAMES:
+        for input_name in self.bill_info.INPUT_NAMES:
             if(input_name == "תאריך שינוי המחיר" or input_name == "כמות הוואט בחשבון" or \
                 input_name == "מחיר הוואט בחשבון"):
-                for check in range(self.number_of_checks):
+                for check in range(self.bill_info.NUMBER_OF_CHECKS):
                     item_name = input_name + " " + str(check+1)
                     self.initialize_input_value(item_name)
             else:
@@ -67,14 +69,14 @@ class window2_manager():
         self.calculate_data()
         
     def calculate_data(self):
-        precentage_of_wats_in_check = utils.calculate_precentage_of_wats_in_check()    
-        wats_of_small_apartment_in_all_checks = utils.calculate_wats_of_small_apartment_in_all_checks()
+        precentage_of_wats_in_check = utils.calculate_precentage_of_wats_in_check(self)    
+        wats_of_small_apartment_in_all_checks = utils.calculate_wats_of_small_apartment_in_all_checks(self)
            
         #TODO: dont pass argument, have a global variable for that
-        cost_of_wats_in_check = utils.calculate_cost_of_wats_in_check(precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks)
-        total_cost_of_wats_in_checks_before_taxes = utils.calculate_total_cost_of_wats_in_checks_before_taxes(cost_of_wats_in_check)
-
-        total_cost_of_wats_in_checks_after_taxes = utils.calculate_total_cost_of_wats_in_checks_after_taxes(total_cost_of_wats_in_checks_before_taxes)
+        utils.calculate_cost_of_wats_in_check(self, precentage_of_wats_in_check, wats_of_small_apartment_in_all_checks)
+        total_cost_of_wats_in_checks_before_taxes = utils.calculate_total_cost_of_wats_in_checks_before_taxes(self)
+ 
+        total_cost_of_wats_in_checks_after_taxes = utils.calculate_total_cost_of_wats_in_checks_after_taxes(self, total_cost_of_wats_in_checks_before_taxes)
         
         
         prints.base_data(self)
