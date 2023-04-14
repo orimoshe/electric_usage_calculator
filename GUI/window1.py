@@ -88,6 +88,12 @@ class window1_manager(QWidget):
         
         self.setLayout(self.layout)
 
+    
+    def button_click1(self, a,b):
+        self.create_bill_info()
+        window2_instance = window2_manager(self.bill_info)
+        window2_instance.window2.show()
+
     def create_bill_info(self):
         self.bill_info = Bill(
             NUMBER_OF_CHECKS = int(self.number_of_checks.text()), 
@@ -98,8 +104,3 @@ class window1_manager(QWidget):
             START_DATE = float(self.start_date_lineEdit.text()),
             END_DATE = float(self.end_date_lineEdit.text())
             )
-    
-    def button_click1(self, a,b):
-        self.create_bill_info()
-        window2_instance = window2_manager(self.bill_info)
-        window2_instance.window2.show()
