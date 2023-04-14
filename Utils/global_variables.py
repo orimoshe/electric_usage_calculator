@@ -12,7 +12,6 @@ def create_checks(self, number_of_wats_in_check_name, prices_of_wats_in_check_na
             ))
 
 def intialize_global_variables(self):
-    #TODO: delte all of these globals
     global TOTAL_COST_OF_WATS_IN_CHECKS_AFTER_TAXES
         
     
@@ -25,6 +24,3 @@ def intialize_global_variables(self):
         change_price_date_name.append("תאריך שינוי המחיר" + " " + str(check+1))
     
     create_checks(self, number_of_wats_in_check_name, prices_of_wats_in_check_name, change_price_date_name)
-    
-    # self.bill_info.START_DATE = float(self.info["תאריך התחלת החשבון"].text())
-    # self.bill_info.END_DATE = float(self.info["תאריך סוף החשבון"].text())
